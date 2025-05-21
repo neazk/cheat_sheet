@@ -1,0 +1,9 @@
+mysql -u root -p
+SHOW DATABASES;
+CREATE DATABASE db_name;
+GRANT ALL PRIVILEGES ON db_name.* TO 'db_user'@'%';
+SHOW GRANTS FOR 'db_user'@'%';
+
+
+mysqldump -u db_user -p db_name > db_name_backup.sql --no-create-info
+scp -i lara.pem ubuntu@98.84.134.69:/home/tt/db_name_backup.sql C:\Users\neazk\Desktop
